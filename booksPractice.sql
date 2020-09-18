@@ -45,3 +45,17 @@ CREATE TABLE reviews (
     FOREIGN KEY(user_id)
     REFERENCES users(user_id)
 );
+
+INSERT INTO reviews (review_id, book_id, user_id, text)
+VALUES (1, 1, 1, 'good book one');
+
+SELECT user.name, review.text
+FROM book
+INNER JOIN call ON review.book_id = book.id
+INNER JOIN call_outcome ON review.user_id = review.user_id;
+
+-- inner join
+SELECT users.name, reviews.text, books.title
+from users
+INNER JOIN reviews ON reviews.user_id = users.user_id
+INNER JOIN books ON reviews.book_id = books.book_id;
